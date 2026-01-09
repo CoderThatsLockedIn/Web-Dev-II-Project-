@@ -36,7 +36,8 @@ const cityToIATA = {
   'new york': 'JFK',
   london: 'LHR',
   dubai: 'DXB',
-  singapore: 'SIN'
+  singapore: 'SIN',
+  tokyo: 'HND'
 };
 
 const iataToCountry = {
@@ -53,7 +54,8 @@ const iataToCountry = {
   JFK: 'USA',
   LHR: 'UK',
   DXB: 'UAE',
-  SIN: 'Singapore'
+  SIN: 'Singapore',
+  HND: 'Japan'
 };
 
 function isDomestic(start, destination) {
@@ -241,5 +243,6 @@ btn.addEventListener('click', async () => {
     renderTable([]);
   }
 });
+
 
 

@@ -1,4 +1,3 @@
-
 // Aviationstack API key (free plan)
 const AVIATIONSTACK_KEY = '5aeaf7a44a87c63de0827bd8d8c9c218';
 
@@ -254,5 +253,6 @@ btn.addEventListener('click', async () => {
     renderTable([]);
   }
 });
+
 
 

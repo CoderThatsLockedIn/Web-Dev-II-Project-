@@ -1,3 +1,5 @@
+
+// Aviationstack API key (free plan)
 const AVIATIONSTACK_KEY = '5aeaf7a44a87c63de0827bd8d8c9c218';
 
 const selector = document.querySelector('.selectors');
@@ -5,6 +7,8 @@ const cards = document.querySelectorAll('.card');
 const btn = document.querySelector('.btn');
 let active_class = '';
 
+
+// Adding and finding active class as per click event
 selector.addEventListener('click', function (e) {
   if (e.target.classList.contains('card')) {
     for (let i = 0; i < cards.length; i++) {
@@ -20,6 +24,7 @@ selector.addEventListener('click', function (e) {
   }
 });
 
+// City to IATA codes
 const cityToIATA = {
   delhi: 'DEL',
   mumbai: 'BOM',
@@ -40,6 +45,7 @@ const cityToIATA = {
   tokyo: 'HND'
 };
 
+// Corresponding Country IATA codes for each city
 const iataToCountry = {
   DEL: 'India',
   BOM: 'India',
@@ -58,6 +64,7 @@ const iataToCountry = {
   HND: 'Japan'
 };
 
+// Checks whether flight is domestic
 function isDomestic(start, destination) {
   return (
     iataToCountry[start] === 'India' &&
@@ -65,14 +72,17 @@ function isDomestic(start, destination) {
   );
 }
 
+// Function to retrieve IATA code of corresponding city 
 function getIATACode(city) {
   if (!city) return null;
   return cityToIATA[city.toLowerCase()] || null;
 }
 
 
+
 const tableContainer = document.querySelector('.table-container');
 
+// Displaying what is going on once track flights button is clicked
 const messageBox = document.createElement('div');
 messageBox.className = 'message-box';
 document.body.appendChild(messageBox);
@@ -80,7 +90,7 @@ document.body.appendChild(messageBox);
 function showMessage(message) {
   messageBox.textContent = message;
 }
-
+// Function to render table of flight data
 function renderTable(flights) {
   tableContainer.innerHTML = '';
 
@@ -123,6 +133,7 @@ function renderTable(flights) {
 
   tableContainer.appendChild(table);
 }
+
 
 function mapAviationstackToFlights(dataArray) {
   if (!Array.isArray(dataArray)) return [];
@@ -176,7 +187,7 @@ async function fetchAndRender(url) {
     renderTable();
   }
 }
-
+//  Track flights button
 btn.addEventListener('click', async () => {
   const inputs = document.querySelectorAll('.inputs input');
   // inputs[0] = Start, inputs[1] = Destination
@@ -243,6 +254,5 @@ btn.addEventListener('click', async () => {
     renderTable([]);
   }
 });
-
 
 

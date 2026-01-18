@@ -25,3 +25,5 @@ Real-time Flight Tracker
 <u>Known limitations</u>
     - Not all cities are included in this project, as mostly Indian cities are present with only a few destinations abroad.
     - Cannot retrieve flights in the future as it comes under paid plan of Aviationstack API.
+    - Can make up to 100 requests per month (Resets on the 1st of every month).
+
